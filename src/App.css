@@ -1,0 +1,226 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* styles.css (or any other styling file) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    /* background-color: thistle; */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.logo img {
+    width: 40px;
+    /* Adjust the logo size as needed */
+    height: auto;
+    margin-right: 10px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.navbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-links li {
+    margin-right: 20px;
+}
+
+.navbar-links li:last-child {
+    margin-right: 0;
+}
+
+.navbar-links li a {
+    text-decoration: none;
+    color: #333333;
+}
+
+/* Add hover effect if desired */
+.navbar-links li a:hover {
+    color: #007bff;
+}
+
+
+/* Offers.css */
+.offers {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.image-container {
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.image-container img {
+    width: 250px;
+    /* Set the width of each image as per your requirements */
+    height: 150px;
+    /* Set the height of each image as per your requirements */
+    object-fit: cover;
+}
+
+
+/* AboutUs.css */
+.about-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.content {
+    max-width: 80%;
+    margin-bottom: 20px;
+}
+
+
+
+/* styles.css (or any other styling file) */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer ul li {
+    margin-bottom: 5px;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer .icons {
+    display: flex;
+}
+
+.footer .icons a {
+    display: inline-block;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.footer .icons i {
+    font-size: 24px;
+}
+
+/* You may need to import Font Awesome or any other icon library for the icons to work properly */
+
+
+/* Booking.css */
+.booking {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-group {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.search-group label {
+    margin-right: 5px;
+}
+
+.search-group input[type="text"],
+.search-group input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Optional: Add styles to adjust the component's width or spacing as needed */
+
+
+
+.Flight-Card {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.Card {
+    display: inline-block;
+    margin-right: 180px;
+    margin-left: 150px;
+
+}
+
+.Card-content {
+    display: flex;
+}
+
+#Card-Img {
+    border-radius: 8px;
+    /* height: 160px;
+    width: 250px; */
+}
+
+.Fare-Date {
+    margin-left: 110px;
+}

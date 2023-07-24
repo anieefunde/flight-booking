@@ -1,0 +1,44 @@
+{
+    "flights": [
+        {
+            "id": 1,
+            "origin": "Pune",
+            "destination": "Mumbai",
+            "departureTime": "12:00",
+            "arrivalTime": "04:00",
+            "fare": 250,
+            "date": "01-01-2023",
+            "img": "../assets/flightImg1.png"
+        },
+        {
+            "id": 2,
+            "origin": "Delhi",
+            "destination": "Goa",
+            "departureTime": "08:00",
+            "arrivalTime": "01:00",
+            "fare": 300,
+            "date": "01-02-2023",
+            "img": "../assets/flightImg2.png"
+        },
+        {
+            "id": 3,
+            "origin": "Jammu",
+            "destination": "Kerala",
+            "departureTime": "11:00",
+            "arrivalTime": "05:00",
+            "fare": 220,
+            "date": "01-03-2023",
+            "img": "../assets/flightImg3.png"
+        },
+        {
+            "id": 4,
+            "origin": "Nagpur",
+            "destination": "Assam",
+            "departureTime": "12:00",
+            "arrivalTime": "06:00",
+            "fare": 280,
+            "date": "01-04-2023",
+            "img": "../assets/flightImg4.png"
+        }
+    ]
+}

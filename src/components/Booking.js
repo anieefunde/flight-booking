@@ -1,23 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
+import bg from '../assets/bg.jpg'
+import icici from '../assets/icici.png'
+import logo from '../assets/logo.png'
+import { viewSearchedFlight } from '../store/slices/flightSlice'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
-function Booking() {
+function Booking({ searchedFlight, setSearchedFlight }) {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
+
+
+    console.log(searchedFlight.from + searchedFlight.destination + searchedFlight.date);
+    console.log(typeof (searchedFlight.date));
+    const handleViewSearch = () => {
+
+        if (searchedFlight.from !== "" && searchedFlight.destination !== "" && searchedFlight.date !== "") {
+            dispatch(viewSearchedFlight(searchedFlight))
+            navigate('/flights')
+
+        }
+        else {
+            alert("Enter Source and destination")
+        }
+    }
     return (
-        <div className="booking">
-            <h2 className="title">Book Your Flight</h2>
-            <div className="search-container">
-                <div className="search-group">
-                    <label htmlFor="from">From:</label>
-                    <input type="text" id="from" placeholder="Departure location" />
+        <div className="container">
+            <img src={bg} alt="Background Image" />
+
+            <div className="overlay">
+                <div className='overlay-title'>
+                    <img style={{ height: '60px', width: '60px', marginRight: '10px' }} src={logo} alt="" />
+                    <h3>Flight Booking</h3>
                 </div>
-                <div className="search-group">
-                    <label htmlFor="to">To:</label>
-                    <input type="text" id="to" placeholder="Destination location" />
+                <img src={icici} id='icici-img' alt="" />
+                <div className="search-box">
+                    <input type="text" placeholder="From" onChange={(e) => setSearchedFlight({ ...searchedFlight, from: e.target.value })} />
+                    <input type="text" placeholder="Destination" onChange={(e) => setSearchedFlight({ ...searchedFlight, destination: e.target.value })} />
+                    <input type="date" placeholder="Select Date" onChange={(e) => setSearchedFlight({ ...searchedFlight, date: e.target.value })} />
+                    <button onClick={handleViewSearch} type="button">Search</button>
                 </div>
-                <div className="search-group">
-                    <label htmlFor="date">Date:</label>
-                    <input type="date" id="date" />
-                </div>
-                <button className="search-button">Search</button>
             </div>
         </div>
     )

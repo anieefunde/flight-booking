@@ -1,10 +1,11 @@
 
+import { useState } from 'react';
 import './App.css';
-import About from './components/About';
-import Body from './components/Body';
+import Booking from './components/Booking';
+import Flightss from './components/Flightss';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Booking from './components/Booking'
+
 import Home from './components/Home'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import {
@@ -13,11 +14,17 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
-import FlightCard from './components/FlightCard';
-import Card from './components/Card';
 
 
 function App() {
+
+  const [searchedFlight, setSearchedFlight] = useState({
+    from: "",
+    destination: "",
+    date: ""
+  })
+
+
   return (
 
     <BrowserRouter>
@@ -25,8 +32,11 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/Booking' element={<Booking />} />
+        <Route path='/Booking' element={<Booking searchedFlight={searchedFlight} setSearchedFlight={setSearchedFlight} />} />
+        <Route path='/flights' element={<Flightss searchedFlight={searchedFlight} setSearchedFlight={setSearchedFlight} />} />
       </Routes>
+
+      <Footer />
     </BrowserRouter>
 
   );

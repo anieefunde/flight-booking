@@ -43,7 +43,7 @@ function Card() {
 
     return (
         <>
-            <h2 >Top Flights</h2>
+            <h2 id='top-flights-title' >Top Flights</h2>
             {content}
         </>
     )

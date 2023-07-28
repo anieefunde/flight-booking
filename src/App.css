@@ -13,6 +13,9 @@ body {
     /* background-color: thistle; */
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .nav-left-menu {
@@ -85,6 +88,15 @@ body {
     color: #333333;
 }
 
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
 /* Add hover effect if desired */
 .navbar-links li a:hover {
     color: #007bff;
@@ -92,6 +104,17 @@ body {
 
 .flights-link {
     text-decoration: none;
+    margin-right: 10px;
+}
+
+.Trains-Link {
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.Hotels-Link {
+    text-decoration: none;
+    margin-right: 10px;
 }
 
 /* Offers.css */
@@ -143,6 +166,7 @@ body {
     padding: 20px;
     display: flex;
     justify-content: space-between;
+
 
 }
 
@@ -313,6 +337,8 @@ img {
     align-items: center; */
 }
 
+
+
 .search-box input[type="text"],
 .search-box input[type="date"],
 .search-box button {
@@ -340,6 +366,13 @@ img {
     position: absolute;
 }
 
+.searchedFlights-below {
+    position: absolute;
+    top: 55%;
+    color: white;
+    width: 80%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
 /* Flights Component CSS */
 
@@ -357,4 +390,70 @@ img {
 .Best-Flights {
     text-align: center;
     color: red;
+}
+
+/* Login Component CSS */
+
+/* src/Login.css */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+
+    height: 50%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 220px;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    width: 180px;
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.google-login {
+    margin-top: 20px;
+    display: flex;
+    cursor: pointer;
+}
+
+.google-icon {
+    margin-right: 10px;
+}
+
+#pop_airlines {
+    height: 30%;
+    width: 90%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

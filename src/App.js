@@ -14,6 +14,7 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
+import Login from './components/Login';
 
 
 function App() {
@@ -34,6 +35,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/Booking' element={<Booking searchedFlight={searchedFlight} setSearchedFlight={setSearchedFlight} />} />
         <Route path='/flights' element={<Flightss searchedFlight={searchedFlight} setSearchedFlight={setSearchedFlight} />} />
+
+        <Route path='/Login' element={<Login />} />
       </Routes>
 
       <Footer />

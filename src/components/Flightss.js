@@ -8,13 +8,25 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
 
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(viewSearchedFlight(searchedFlight))
-    }, [])
-
-    const flights = useSelector((state) => {
+    let flights = useSelector((state) => {
         return state.flights
     })
+
+    let flightSearchedFlag = useSelector((state) => {
+        return state.flights.flightSearchedFlag
+    })
+    useEffect(() => {
+        if (flightSearchedFlag) {
+            dispatch(viewSearchedFlight(searchedFlight))
+        }
+        setSearchedFlight({
+            from: "",
+            destination: "",
+            date: ""
+        })
+    }, [])
+
+
 
 
 

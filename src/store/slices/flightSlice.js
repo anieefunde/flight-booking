@@ -27,6 +27,7 @@ const flightSlice = createSlice({
     name: 'Flight',
     initialState: {
         flights: [],
+        flightSearchedFlag: false,
     },
     extraReducers(builder) {
         builder.addCase(fetchFlights.fulfilled, (state, action) => {

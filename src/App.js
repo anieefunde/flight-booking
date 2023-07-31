@@ -15,6 +15,7 @@ import {
   Route
 } from 'react-router-dom'
 import Login from './components/Login';
+import { useSelector } from 'react-redux';
 
 
 function App() {
@@ -25,18 +26,19 @@ function App() {
     date: ""
   })
 
+  const [stateToReRenderNavbarOnly, setStateToReRenderNavbarOnly] = useState(false);
 
   return (
 
     <BrowserRouter>
-      <Header />
+      <Header stateToReRenderNavbarOnly={stateToReRenderNavbarOnly} setStateToReRenderNavbarOnly={setStateToReRenderNavbarOnly} />
 
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/Booking' element={<Booking searchedFlight={searchedFlight} setSearchedFlight={setSearchedFlight} />} />
         <Route path='/flights' element={<Flightss searchedFlight={searchedFlight} setSearchedFlight={setSearchedFlight} />} />
 
-        <Route path='/Login' element={<Login />} />
+        <Route path='/Login' element={<Login stateToReRenderNavbarOnly={stateToReRenderNavbarOnly} setStateToReRenderNavbarOnly={setStateToReRenderNavbarOnly} />} />
       </Routes>
 
       <Footer />

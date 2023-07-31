@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import flight_logo from '../assets/flight-logo-img.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchFlights, viewSearchedFlight } from '../store/slices/flightSlice';
+import { fetchUsers } from '../store/slices/usersSlice';
 
 
 function Flightss({ searchedFlight, setSearchedFlight }) {
@@ -15,6 +16,9 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
     let flightSearchedFlag = useSelector((state) => {
         return state.flights.flightSearchedFlag
     })
+
+
+
     useEffect(() => {
         if (flightSearchedFlag) {
             dispatch(viewSearchedFlight(searchedFlight))

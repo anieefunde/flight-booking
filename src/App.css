@@ -97,6 +97,81 @@ body {
     z-index: 999;
 }
 
+#logged-user-name {
+    color: red;
+}
+
+#loggedInMenuIconAndName {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Add your other navbar styles here */
+
+.hamburger-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 1%;
+}
+
+.icon {
+    width: 20px;
+    height: 4px;
+    background-color: #000;
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.icon:before,
+.icon:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    background-color: #000;
+}
+
+.icon:before {
+    top: -10px;
+}
+
+.icon:after {
+    top: 10px;
+}
+
+.icon.open {
+    /* transform: rotate(90deg); */
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    position: absolute;
+    right: 1%;
+    border: 1px solid black;
+}
+
+.option {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.option:hover {
+    cursor: pointer;
+    color: blue;
+}
+
+/* Add more styling as needed */
+
+#MenuIcon {
+    margin-left: 10px;
+}
+
 /* Add hover effect if desired */
 .navbar-links li a:hover {
     color: #007bff;

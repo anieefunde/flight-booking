@@ -40,5 +40,20 @@
             "date": "2023-01-04",
             "img": "../assets/flightImg4.png"
         }
+    ],
+    "users": [
+        {
+            "name": "Aniket Funde",
+            "username": "aniee",
+            "password": "asd",
+            "id": "1",
+            "Bookings": []
+        },
+        {
+            "username": "kinhkohli",
+            "password": "king@100",
+            "id": "2",
+            "Bookings": []
+        }
     ]
 }

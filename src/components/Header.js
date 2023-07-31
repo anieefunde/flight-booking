@@ -9,7 +9,26 @@ import { ImProfile } from 'react-icons/im'
 import { BsTrainFreightFront } from 'react-icons/bs'
 import { LuHotel } from 'react-icons/lu'
 import { PiBusLight } from 'react-icons/pi'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchUsers } from '../store/slices/usersSlice'
+import { GiHamburgerMenu } from 'react-icons/gi'
+import MenuIcon from './MenuIcon'
 function Header() {
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+
+    const loggedIn = useSelector((state) => {
+        return state.users.loggedIn;
+    })
+
+    const users = useSelector((state) => {
+        return state.users
+    })
+
+    const loggedUser = useSelector((state) => {
+        return state.users.loggedUser
+    })
 
     return (
         <nav className="navbar">
@@ -34,7 +53,12 @@ function Header() {
                     <li><BsAirplane /> </li>
                     <li><Link to={'/Booking'}> Booking</Link> </li>
                     <li> <ImProfile /></li>
-                    <li> <Link to={'/Login'}>  Login</Link></li>
+                    {/* <li> <Link to={'/Login'}> Login</Link></li> */}
+                    {
+                        loggedIn ? <li id='loggedInMenuIconAndName' > <Link id='logged-user-name' to={'/Login'}> {loggedUser.name}</Link> <MenuIcon />
+                        </li> : <li> <Link to={'/Login'}> Login</Link></li>
+                    }
+                    {/* <li> <Link to={'/Login'}> Login</Link></li> */}
                 </ul>
             </div>
         </nav>
@@ -42,3 +66,6 @@ function Header() {
 }
 
 export default Header
+
+
+    // < GiHamburgerMenu id = 'MenuIcon' />

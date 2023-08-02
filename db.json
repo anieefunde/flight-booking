@@ -44,14 +44,56 @@
     "users": [
         {
             "name": "Aniket Funde",
+            "city": "Yavatmal",
+            "mobile": "7776917610",
             "username": "aniee",
             "password": "asd",
             "id": "1",
-            "Bookings": []
+            "Bookings": [
+                {
+                    "passengerName": "Aniket Funde",
+                    "seatNo": "2",
+                    "origin": "Pune",
+                    "destination": "Mumbai",
+                    "departureTime": "12:00",
+                    "arrivalTime": "04:00",
+                    "date": "2023-01-01"
+                },
+                {
+                    "passengerName": "Aniket Funde",
+                    "seatNo": "3",
+                    "origin": "Delhi",
+                    "destination": "Goa",
+                    "departureTime": "12:00",
+                    "arrivalTime": "04:00",
+                    "date": "2023-01-01"
+                },
+                {
+                    "passengerName": "Aniket Funde",
+                    "seatNo": "4",
+                    "origin": "Jammu",
+                    "destination": "Kerala",
+                    "departureTime": "12:00",
+                    "arrivalTime": "04:00",
+                    "date": "2023-01-01"
+                },
+                {
+                    "passengerName": "Aniket Funde",
+                    "seatNo": "5",
+                    "origin": "US",
+                    "destination": "Norway",
+                    "departureTime": "12:00",
+                    "arrivalTime": "04:00",
+                    "date": "2023-01-01"
+                }
+            ]
         },
         {
-            "username": "kinhkohli",
-            "password": "king@100",
+            "name": "Virat Kohli",
+            "city": "Delhi",
+            "mobile": "123456",
+            "username": "kingkohli",
+            "password": "asd",
             "id": "2",
             "Bookings": []
         }

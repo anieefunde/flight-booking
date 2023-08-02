@@ -532,3 +532,134 @@ button:hover {
     width: 90%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+/* Styling for the customer profile container */
+.Profile {
+    width: 770px;
+    margin: 0px 250px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    /* border-radius: 8px; */
+    background-color: #f9f9f9;
+    text-align: center;
+    position: relative;
+
+}
+
+#back-arrow {
+    position: absolute;
+    left: 4%;
+    top: 6%;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.bookingCard {
+    width: 300px;
+    margin: 20px 220px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: antiquewhite;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+/* .booking-details li {
+    list-style: none;
+} */
+
+.booking-details {
+    margin: 0px 230px;
+    /* border: 2px solid black; */
+    /* display: flex;
+    flex-direction: column; */
+    width: 350px;
+}
+
+.Booking-Labels {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+
+.Profile-heading {
+    margin-bottom: 10px;
+
+}
+
+/* Styling for customer name and mobile number */
+.Profile-heading {
+    margin: 5px 0;
+}
+
+/* Styling for the bookings list */
+/* .Bookings-Heading {
+    margin: 15px 0;
+} */
+
+.Profile-UL {
+    padding: 0;
+}
+
+.Profile-li {
+    margin-bottom: 5px;
+    list-style: none;
+}
+
+/* Styling for each booking */
+.Profile-li:before {
+    /* content: "- "; */
+}
+
+/* .booking-card-container {
+    width: 200px;
+    background-color: antiquewhite;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0 10px;
+    display: inline-block;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.bookings-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} */
+
+/* Profile card css */
+
+.ProfileCard {
+    position: relative;
+    width: 60%;
+    margin-left: 250px;
+    color: white;
+
+}
+
+#BackgroundImgProfile {
+    border: 1px solid transparent;
+    /* border-radius: 10px; */
+}
+
+.ProfileDetails {
+    position: absolute;
+    top: 0;
+    left: 2%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.ProfileImage {
+    margin-left: 490px;
+}
+
+
+/* My booking components */

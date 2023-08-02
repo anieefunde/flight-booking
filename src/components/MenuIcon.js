@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser, removeLoggedUserDetails } from '../store/slices/usersSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 function MenuIcon() {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const dispatch = useDispatch();
+
+    const navigate = useNavigate();
 
     const toggleExpanded = () => {
         setIsExpanded(!isExpanded);
@@ -26,9 +29,13 @@ function MenuIcon() {
     const handlelogout = () => {
         dispatch(logoutUser())
         dispatch(removeLoggedUserDetails())
-
+        navigate('/')
         console.log(loggedIn);
         console.log(loggedUser);
+    }
+
+    const handleProfileClick = () => {
+        navigate('/Profile')
     }
 
     return (
@@ -36,7 +43,7 @@ function MenuIcon() {
             <div className={`icon ${isExpanded ? 'open' : ''}`} />
             {isExpanded && (
                 <div className="options">
-                    <div className="option">Profile</div>
+                    <div onClick={handleProfileClick} className="option">Profile</div>
                     <div className="option" onClick={handlelogout}>Logout</div>
                 </div>
             )}

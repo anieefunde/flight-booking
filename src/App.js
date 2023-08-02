@@ -16,6 +16,7 @@ import {
 } from 'react-router-dom'
 import Login from './components/Login';
 import { useSelector } from 'react-redux';
+import Profile from './components/Profile';
 
 
 function App() {
@@ -39,6 +40,8 @@ function App() {
         <Route path='/flights' element={<Flightss searchedFlight={searchedFlight} setSearchedFlight={setSearchedFlight} />} />
 
         <Route path='/Login' element={<Login stateToReRenderNavbarOnly={stateToReRenderNavbarOnly} setStateToReRenderNavbarOnly={setStateToReRenderNavbarOnly} />} />
+
+        <Route path='/Profile' element={<Profile />} />
       </Routes>
 
       <Footer />

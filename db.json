@@ -1,101 +1,175 @@
 {
-    "flights": [
+  "flights": [
+    {
+      "flightid": "111",
+      "origin": "Pune",
+      "destination": "Mumbai",
+      "departureTime": "12:00",
+      "arrivalTime": "04:00",
+      "fare": 250,
+      "date": "2023-01-01",
+      "img": "../assets/flightImg1.png"
+    },
+    {
+      "flightid": "222",
+      "origin": "Delhi",
+      "destination": "Goa",
+      "departureTime": "08:00",
+      "arrivalTime": "01:00",
+      "fare": 300,
+      "date": "2023-01-31",
+      "img": "../assets/flightImg2.png"
+    },
+    {
+      "flightid": "333",
+      "origin": "Jammu",
+      "destination": "Kerala",
+      "departureTime": "11:00",
+      "arrivalTime": "05:00",
+      "fare": 220,
+      "date": "2023-01-03",
+      "img": "../assets/flightImg3.png"
+    },
+    {
+      "flightid": "444",
+      "origin": "Nagpur",
+      "destination": "Assam",
+      "departureTime": "12:00",
+      "arrivalTime": "06:00",
+      "fare": 280,
+      "date": "2023-01-04",
+      "img": "../assets/flightImg4.png"
+    }
+  ],
+  "users": [
+    {
+      "name": "Aniket Funde",
+      "city": "Yavatmal",
+      "mobile": "7776917610",
+      "username": "aniee",
+      "password": "asd",
+      "id": 1,
+      "Bookings": [
         {
-            "id": 1,
-            "origin": "Pune",
-            "destination": "Mumbai",
-            "departureTime": "12:00",
-            "arrivalTime": "04:00",
-            "fare": 250,
-            "date": "2023-01-01",
-            "img": "../assets/flightImg1.png"
+          "passengerName": "Aniket Funde",
+          "seatNo": "2",
+          "origin": "Pune",
+          "destination": "Mumbai",
+          "departureTime": "12:00",
+          "arrivalTime": "04:00",
+          "date": "2023-01-01"
         },
         {
-            "id": 2,
-            "origin": "Delhi",
-            "destination": "Goa",
-            "departureTime": "08:00",
-            "arrivalTime": "01:00",
-            "fare": 300,
-            "date": "2023-01-31",
-            "img": "../assets/flightImg2.png"
+          "passengerName": "Aniket Funde",
+          "seatNo": "3",
+          "origin": "Delhi",
+          "destination": "Goa",
+          "departureTime": "12:00",
+          "arrivalTime": "04:00",
+          "date": "2023-01-01"
         },
         {
-            "id": 3,
-            "origin": "Jammu",
-            "destination": "Kerala",
-            "departureTime": "11:00",
-            "arrivalTime": "05:00",
-            "fare": 220,
-            "date": "2023-01-03",
-            "img": "../assets/flightImg3.png"
+          "passengerName": "Aniket Funde",
+          "seatNo": "4",
+          "origin": "Jammu",
+          "destination": "Kerala",
+          "departureTime": "12:00",
+          "arrivalTime": "04:00",
+          "date": "2023-01-01"
         },
         {
-            "id": 4,
-            "origin": "Nagpur",
-            "destination": "Assam",
-            "departureTime": "12:00",
-            "arrivalTime": "06:00",
-            "fare": 280,
-            "date": "2023-01-04",
-            "img": "../assets/flightImg4.png"
+          "passengerName": "Aniket Funde",
+          "seatNo": "5",
+          "origin": "US",
+          "destination": "Norway",
+          "departureTime": "12:00",
+          "arrivalTime": "04:00",
+          "date": "2023-01-01"
         }
-    ],
-    "users": [
-        {
-            "name": "Aniket Funde",
-            "city": "Yavatmal",
-            "mobile": "7776917610",
-            "username": "aniee",
-            "password": "asd",
-            "id": "1",
-            "Bookings": [
-                {
-                    "passengerName": "Aniket Funde",
-                    "seatNo": "2",
-                    "origin": "Pune",
-                    "destination": "Mumbai",
-                    "departureTime": "12:00",
-                    "arrivalTime": "04:00",
-                    "date": "2023-01-01"
-                },
-                {
-                    "passengerName": "Aniket Funde",
-                    "seatNo": "3",
-                    "origin": "Delhi",
-                    "destination": "Goa",
-                    "departureTime": "12:00",
-                    "arrivalTime": "04:00",
-                    "date": "2023-01-01"
-                },
-                {
-                    "passengerName": "Aniket Funde",
-                    "seatNo": "4",
-                    "origin": "Jammu",
-                    "destination": "Kerala",
-                    "departureTime": "12:00",
-                    "arrivalTime": "04:00",
-                    "date": "2023-01-01"
-                },
-                {
-                    "passengerName": "Aniket Funde",
-                    "seatNo": "5",
-                    "origin": "US",
-                    "destination": "Norway",
-                    "departureTime": "12:00",
-                    "arrivalTime": "04:00",
-                    "date": "2023-01-01"
-                }
-            ]
-        },
-        {
-            "name": "Virat Kohli",
-            "city": "Delhi",
-            "mobile": "123456",
-            "username": "kingkohli",
-            "password": "asd",
-            "id": "2",
-            "Bookings": []
-        }
-    ]
+      ]
+    },
+    {
+      "name": "Virat Kohli",
+      "city": "Delhi",
+      "mobile": "123456",
+      "username": "kingkohli",
+      "password": "asd",
+      "id": 2,
+      "Bookings": []
+    }
+  ],
+  "bookings": [
+    {
+      "flightid": "222",
+      "origin": "Delhi",
+      "destination": "Goa",
+      "departureTime": "08:00",
+      "arrivalTime": "01:00",
+      "fare": 300,
+      "date": "2023-01-31",
+      "img": "../assets/flightImg2.png",
+      "username": "aniee",
+      "id": 1
+    },
+    {
+      "flightid": "333",
+      "origin": "Jammu",
+      "destination": "Kerala",
+      "departureTime": "11:00",
+      "arrivalTime": "05:00",
+      "fare": 220,
+      "date": "2023-01-03",
+      "img": "../assets/flightImg3.png",
+      "username": "aniee",
+      "id": 2
+    },
+    {
+      "flightid": "111",
+      "origin": "Pune",
+      "destination": "Mumbai",
+      "departureTime": "12:00",
+      "arrivalTime": "04:00",
+      "fare": 250,
+      "date": "2023-01-01",
+      "img": "../assets/flightImg1.png",
+      "username": "aniee",
+      "id": 3
+    },
+    {
+      "flightid": "444",
+      "origin": "Nagpur",
+      "destination": "Assam",
+      "departureTime": "12:00",
+      "arrivalTime": "06:00",
+      "fare": 280,
+      "date": "2023-01-04",
+      "img": "../assets/flightImg4.png",
+      "username": "aniee",
+      "id": 4
+    },
+    {
+      "flightid": "222",
+      "origin": "Delhi",
+      "destination": "Goa",
+      "departureTime": "08:00",
+      "arrivalTime": "01:00",
+      "fare": 300,
+      "date": "2023-01-31",
+      "img": "../assets/flightImg2.png",
+      "username": "aniee",
+      "id": 5
+    },
+    {
+      "flightid": "222",
+      "origin": "Delhi",
+      "destination": "Goa",
+      "departureTime": "08:00",
+      "arrivalTime": "01:00",
+      "fare": 300,
+      "date": "2023-01-31",
+      "img": "../assets/flightImg2.png",
+      "username": "kingkohli",
+      "id": 6
+    }
+  ]
 }

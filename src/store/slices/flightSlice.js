@@ -59,6 +59,14 @@ export const showBookings = createAsyncThunk("bookings/show", async () => {
   return response.data;
 });
 
+export const cancelBooking = createAsyncThunk(
+  "booking/cancel",
+  async (booking) => {
+    await axios.delete(`http://localhost:3005/bookings/${booking.id}`);
+    return booking;
+  }
+);
+
 const flightSlice = createSlice({
   name: "Flight",
   initialState: {

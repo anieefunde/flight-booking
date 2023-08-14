@@ -6,6 +6,7 @@ import {
   fetchFlights,
   viewSearchedFlight,
 } from "../store/slices/flightSlice";
+import { useNavigate } from "react-router-dom";
 
 let newReply = {
   id: 4,
@@ -14,8 +15,12 @@ let newReply = {
 
 function Flightss({ searchedFlight, setSearchedFlight }) {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [bookThisFlight, setBookThisFlight] = useState({});
+
+  const loggedIn = useSelector((state) => {
+    return state.users.loggedIn;
+  });
 
   const loggedUser = useSelector((state) => {
     return state.users.loggedUser;
@@ -44,25 +49,31 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
   }, []);
 
   const handleBookFlight = (flightid) => {
-    //logic
-    console.log(flightid);
+    if (loggedIn === false) {
+      navigate("/Login");
+    } else {
+      console.log(flightid);
 
-    const wantedFlightToBook = flights.flights.find((flight) => {
-      return flight.flightid == flightid;
-    });
+      const wantedFlightToBook = flights.flights.find((flight) => {
+        return flight.flightid == flightid;
+      });
 
-    // wantedFlightToBook[newPropertyName] = newPropertyValue;
+      // wantedFlightToBook[newPropertyName] = newPropertyValue;
 
-    const finalFlightToBook = {
-      ...wantedFlightToBook,
-      username: loggedUser.username,
-    };
+      const finalFlightToBook = {
+        ...wantedFlightToBook,
+        username: loggedUser.username,
+      };
 
-    console.log(wantedFlightToBook);
-    setBookThisFlight(finalFlightToBook);
-    // console.log(bookThisFlight);
-    dispatch(bookFlight(finalFlightToBook));
-    console.log(flights.bookedFlights);
+      console.log(wantedFlightToBook);
+      setBookThisFlight(finalFlightToBook);
+      // console.log(bookThisFlight);
+      dispatch(bookFlight(finalFlightToBook));
+      console.log(flights.bookedFlights);
+
+      alert("Flight Booked Succesfully");
+      navigate("/Profile");
+    }
   };
 
   let content = flights.flights.map((flight, index) => {

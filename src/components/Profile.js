@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ProfileCard from "./ProfileCard";
 import { FaPlane } from "react-icons/fa";
 import { BiArrowBack } from "react-icons/bi";
-import { showBookings } from "../store/slices/flightSlice";
+import { cancelBooking, showBookings } from "../store/slices/flightSlice";
 
 function Profile() {
   const loggedUser = useSelector((state) => {
@@ -11,10 +11,6 @@ function Profile() {
   });
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(showBookings());
-  }, []);
 
   // console.log(bookingsDetails);
   const bookingsDetails = useSelector((state) => {
@@ -26,6 +22,9 @@ function Profile() {
   const [showBookingDetails, setShowBookingDetails] = useState(false);
   const [myBookingDetails, setMyBookingDetails] = useState({});
 
+  useEffect(() => {
+    dispatch(showBookings());
+  }, [showBookingDetails]);
   // const bookings = loggedUser.Bookings;
   // console.log(loggedUser);
 
@@ -43,6 +42,13 @@ function Profile() {
 
   const handleCloseBookingDetails = () => {
     setShowBookingDetails(false);
+  };
+
+  const deleteBooking = (booking) => {
+    dispatch(cancelBooking(booking));
+    alert("Booking Cancelled");
+    setShowBookingDetails(false);
+    // window.location.reload(true); // Refresh the entire html page
   };
 
   return (
@@ -85,6 +91,12 @@ function Profile() {
               <h4>Date : </h4>
               <p className="bd-data">{myBookingDetails.date}</p>
             </div>
+            <button
+              id="cancelBooking"
+              onClick={() => deleteBooking(myBookingDetails)}
+            >
+              cancel
+            </button>
           </div>
         ) : (
           bookingsDetails.map((booking, index) => {

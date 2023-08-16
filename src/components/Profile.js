@@ -72,6 +72,14 @@ function Profile() {
               <p className="bd-data">{myBookingDetails.seatNo}</p>
             </div> */}
             <div className="Booking-Labels">
+              <h4>Passenger Name : </h4>
+              <p className="bd-data">{myBookingDetails.passengerName}</p>
+            </div>
+            <div className="Booking-Labels">
+              <h4>Seats : </h4>
+              <p className="bd-data">{myBookingDetails.seats}</p>
+            </div>
+            <div className="Booking-Labels">
               <h4>Starting From : </h4>
               <p className="bd-data">{myBookingDetails.origin}</p>
             </div>

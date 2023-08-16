@@ -122,6 +122,34 @@
       "img": "../assets/flightImg3.png",
       "username": "aniee",
       "id": 4
+    },
+    {
+      "flightid": "111",
+      "origin": "Pune",
+      "destination": "Mumbai",
+      "departureTime": "12:00",
+      "arrivalTime": "04:00",
+      "fare": 250,
+      "date": "2023-01-01",
+      "img": "../assets/flightImg1.png",
+      "username": "aniee",
+      "passengerName": "golu",
+      "seats": "2",
+      "id": 5
+    },
+    {
+      "flightid": "222",
+      "origin": "Delhi",
+      "destination": "Goa",
+      "departureTime": "08:00",
+      "arrivalTime": "01:00",
+      "fare": 300,
+      "date": "2023-01-31",
+      "img": "../assets/flightImg2.png",
+      "username": "kingkohli",
+      "passengerName": "Virat",
+      "seats": "2",
+      "id": 6
     }
   ]
 }

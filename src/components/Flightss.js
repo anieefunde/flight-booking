@@ -7,27 +7,32 @@ import {
   viewSearchedFlight,
 } from "../store/slices/flightSlice";
 import { useNavigate } from "react-router-dom";
-
-let newReply = {
-  id: 4,
-  text: "reply 2",
-};
+import Modal from "react-modal";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 function Flightss({ searchedFlight, setSearchedFlight }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [bookThisFlight, setBookThisFlight] = useState({});
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [passengerDetails, setPassengerDetails] = useState({
+    passengerName: "",
+    seats: "",
+  });
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
 
   const loggedIn = useSelector((state) => {
     return state.users.loggedIn;
   });
-
   const loggedUser = useSelector((state) => {
     return state.users.loggedUser;
   });
-
-  // const newPropertyName = "username";
-  // const newPropertyValue = loggedUser.username;
 
   let flights = useSelector((state) => {
     return state.flights;
@@ -51,29 +56,54 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
   const handleBookFlight = (flightid) => {
     if (loggedIn === false) {
       navigate("/Login");
-    } else {
-      console.log(flightid);
+    } else if (loggedIn === true && modalIsOpen === false) {
+      openModal();
 
       const wantedFlightToBook = flights.flights.find((flight) => {
         return flight.flightid == flightid;
       });
 
-      // wantedFlightToBook[newPropertyName] = newPropertyValue;
-
-      const finalFlightToBook = {
-        ...wantedFlightToBook,
-        username: loggedUser.username,
-      };
-
-      console.log(wantedFlightToBook);
-      setBookThisFlight(finalFlightToBook);
-      // console.log(bookThisFlight);
-      dispatch(bookFlight(finalFlightToBook));
-      console.log(flights.bookedFlights);
-
-      alert("Flight Booked Succesfully");
-      navigate("/Profile");
+      setBookThisFlight(wantedFlightToBook);
+      console.log(bookThisFlight);
     }
+
+    // else {
+    //   console.log(flightid);
+
+    //   const wantedFlightToBook = flights.flights.find((flight) => {
+    //     return flight.flightid == flightid;
+    //   });
+
+    //   const finalFlightToBook = {
+    //     ...wantedFlightToBook,
+    //     username: loggedUser.username,
+    //     passengerName: passengerDetails.passengerName,
+    //     seats: passengerDetails.seats,
+    //   };
+
+    //   console.log(wantedFlightToBook);
+    //   setBookThisFlight(finalFlightToBook);
+    //   dispatch(bookFlight(finalFlightToBook));
+    //   console.log(flights.bookedFlights);
+    //   alert("Flight Booked Succesfully");
+    //   navigate("/Profile");
+    // }
+  };
+
+  const bookMyFlight = () => {
+    const finalFlightToBook = {
+      ...bookThisFlight,
+      username: loggedUser.username,
+      passengerName: passengerDetails.passengerName,
+      seats: passengerDetails.seats,
+    };
+
+    // console.log(wantedFlightToBook);
+    setBookThisFlight(finalFlightToBook);
+    dispatch(bookFlight(finalFlightToBook));
+    console.log(flights.bookedFlights);
+    alert("Flight Booked Succesfully");
+    navigate("/Profile");
   };
 
   let content = flights.flights.map((flight, index) => {
@@ -100,8 +130,48 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
     );
   });
 
+  const customModalStyles = {
+    content: {
+      width: "40%",
+      height: "60%",
+      margin: "auto",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      marginTop: "100px",
+    },
+  };
+
   return (
     <>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Example Modal"
+        style={customModalStyles}
+      >
+        <AiFillCloseCircle onClick={closeModal} id="CloseModalBtn" />
+        <h2>Enter Passenger Details</h2>
+        <input
+          onChange={(e) =>
+            setPassengerDetails({
+              ...passengerDetails,
+              passengerName: e.target.value,
+            })
+          }
+          type="text"
+          placeholder="Enter Full Name"
+        />
+        <input
+          onChange={(e) =>
+            setPassengerDetails({ ...passengerDetails, seats: e.target.value })
+          }
+          type="number"
+          placeholder="Enter No of Seats"
+        />
+        <button onClick={bookMyFlight}>Book</button>
+      </Modal>
       <h2 className="Best-Flights">Best Flights</h2>
       {content}
     </>

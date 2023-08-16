@@ -11,8 +11,6 @@ function Profile() {
   });
 
   const dispatch = useDispatch();
-
-  // console.log(bookingsDetails);
   const bookingsDetails = useSelector((state) => {
     return state.flights.bookings;
   });
@@ -25,8 +23,6 @@ function Profile() {
   useEffect(() => {
     dispatch(showBookings());
   }, [showBookingDetails]);
-  // const bookings = loggedUser.Bookings;
-  // console.log(loggedUser);
 
   const handleCheckBookingDetails = (username, flightid) => {
     console.log(username);
@@ -63,14 +59,6 @@ function Profile() {
         <h3> Booking Information</h3>
         {showBookingDetails ? (
           <div className="booking-details">
-            {/* <div className="Booking-Labels">
-              <h4>Passenger Name : </h4>
-              <p className="bd-data">{myBookingDetails.passengerName}</p>
-            </div>
-            <div className="Booking-Labels">
-              <h4>Seat No : </h4>
-              <p className="bd-data">{myBookingDetails.seatNo}</p>
-            </div> */}
             <div className="Booking-Labels">
               <h4>Passenger Name : </h4>
               <p className="bd-data">{myBookingDetails.passengerName}</p>

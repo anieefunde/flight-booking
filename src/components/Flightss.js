@@ -9,6 +9,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { AiFillCloseCircle } from "react-icons/ai";
+import SortByPanel from "./SortByPanel";
 
 function Flightss({ searchedFlight, setSearchedFlight }) {
   const dispatch = useDispatch();
@@ -19,6 +20,17 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
     passengerName: "",
     seats: "",
   });
+
+  // sorting logic
+
+  const [currentSort, setCurrentSort] = useState("");
+
+  const handleSortChange = (option) => {
+    setCurrentSort(option);
+    // Perform your sorting logic here based on the selected option
+  };
+
+  // sorting logic end
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -66,28 +78,6 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
       setBookThisFlight(wantedFlightToBook);
       console.log(bookThisFlight);
     }
-
-    // else {
-    //   console.log(flightid);
-
-    //   const wantedFlightToBook = flights.flights.find((flight) => {
-    //     return flight.flightid == flightid;
-    //   });
-
-    //   const finalFlightToBook = {
-    //     ...wantedFlightToBook,
-    //     username: loggedUser.username,
-    //     passengerName: passengerDetails.passengerName,
-    //     seats: passengerDetails.seats,
-    //   };
-
-    //   console.log(wantedFlightToBook);
-    //   setBookThisFlight(finalFlightToBook);
-    //   dispatch(bookFlight(finalFlightToBook));
-    //   console.log(flights.bookedFlights);
-    //   alert("Flight Booked Succesfully");
-    //   navigate("/Profile");
-    // }
   };
 
   const bookMyFlight = () => {
@@ -97,8 +87,6 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
       passengerName: passengerDetails.passengerName,
       seats: passengerDetails.seats,
     };
-
-    // console.log(wantedFlightToBook);
     setBookThisFlight(finalFlightToBook);
     dispatch(bookFlight(finalFlightToBook));
     console.log(flights.bookedFlights);
@@ -120,7 +108,7 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
           <div className="destination">{flight.destination}</div>
           <div className="arrival-time">{flight.arrivalTime}</div>
         </div>
-        <div className="flight-fare">{flight.fare}</div>
+        <div className="flight-fare">{flight.fare} $</div>
         <div className="flight-book-button">
           <button onClick={() => handleBookFlight(flight.flightid)}>
             Book
@@ -173,6 +161,12 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
         <button onClick={bookMyFlight}>Book</button>
       </Modal>
       <h2 className="Best-Flights">Best Flights</h2>
+
+      {/* if flights are savailable then only it will show sort option */}
+      {flights.flights.length !== 0 && (
+        <SortByPanel onSortChange={handleSortChange} />
+      )}
+
       {content}
     </>
   );

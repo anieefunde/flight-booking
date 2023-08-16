@@ -67,6 +67,23 @@ export const cancelBooking = createAsyncThunk(
   }
 );
 
+export const showSortedFlights = createAsyncThunk(
+  "sortedFlights/show",
+  async (option) => {
+    if (option === "cheapest") {
+      const response = await axios.get("http://localhost:3005/flights");
+      console.log(response.data);
+
+      const data = response.data;
+
+      const sortedFlights = data.sort((a, b) => a.fare - b.fare);
+      console.log(sortedFlights);
+
+      return sortedFlights;
+    }
+  }
+);
+
 const flightSlice = createSlice({
   name: "Flight",
   initialState: {
@@ -87,6 +104,9 @@ const flightSlice = createSlice({
     });
     builder.addCase(showBookings.fulfilled, (state, action) => {
       state.bookings = action.payload;
+    });
+    builder.addCase(showSortedFlights.fulfilled, (state, action) => {
+      state.flights = action.payload;
     });
   },
 });

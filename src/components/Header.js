@@ -32,8 +32,6 @@ function Header() {
     <nav className="navbar">
       <div className="navbar-left">
         <div className="menu-icon">
-          {/* Replace this with your desired menu icon */}
-          {/* <span id='Menu-Icon'>☰ </span> */}
           <Link to={"/"}>
             {" "}
             <img
@@ -77,7 +75,7 @@ function Header() {
             {" "}
             <ImProfile />
           </li>
-          {/* <li> <Link to={'/Login'}> Login</Link></li> */}
+
           {loggedIn ? (
             <li id="loggedInMenuIconAndName">
               {" "}
@@ -93,7 +91,6 @@ function Header() {
               <Link to={"/Login"}> Login</Link>
             </li>
           )}
-          {/* <li> <Link to={'/Login'}> Login</Link></li> */}
         </ul>
       </div>
     </nav>
@@ -101,5 +98,3 @@ function Header() {
 }
 
 export default Header;
-
-// < GiHamburgerMenu id = 'MenuIcon' />

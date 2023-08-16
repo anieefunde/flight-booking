@@ -662,3 +662,8 @@ button:hover {
   right: 5%;
   cursor: pointer;
 }
+
+.sortByHeading {
+  display: inline;
+  margin-right: 10px;
+}

@@ -35,9 +35,6 @@ function Login({ stateToReRenderNavbarOnly, setStateToReRenderNavbarOnly }) {
     return state.users.loggedUser;
   });
 
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
-
   useEffect(() => {
     dispatch(fetchUsers());
     if (Object.keys(formErrors).length === 0 && isSubmit) {
@@ -75,13 +72,9 @@ function Login({ stateToReRenderNavbarOnly, setStateToReRenderNavbarOnly }) {
     console.log(userFound);
 
     if (userFound) {
-      // setStateToReRenderNavbarOnly(true)
       dispatch(makeUserLoggedIn());
       dispatch(addLoggedUserDetails(userFound));
       navigate("/flights");
-      // loggedIn = true
-      // loggedUser = userFound
-
       console.log(loggedIn);
       console.log(loggedUser);
     } else if (
@@ -89,7 +82,6 @@ function Login({ stateToReRenderNavbarOnly, setStateToReRenderNavbarOnly }) {
       validUser.username !== "" &&
       validUser.password !== ""
     ) {
-      //  alert("wrong credentials")
       setWrongUser(true);
       setValidUser({
         username: "",

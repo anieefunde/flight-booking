@@ -20,11 +20,7 @@ function Booking({ searchedFlight, setSearchedFlight }) {
   );
   console.log(typeof searchedFlight.date);
   const handleViewSearch = () => {
-    if (
-      searchedFlight.from !== "" &&
-      searchedFlight.destination !== "" &&
-      searchedFlight.date !== ""
-    ) {
+    if (searchedFlight.from !== "" && searchedFlight.destination !== "") {
       dispatch(viewSearchedFlight(searchedFlight));
       navigate("/flights");
 

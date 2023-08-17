@@ -24,13 +24,17 @@ function Profile() {
     dispatch(showBookings());
   }, [showBookingDetails]);
 
-  const handleCheckBookingDetails = (username, flightid) => {
+  const handleCheckBookingDetails = (username, flightid, id) => {
     console.log(username);
     dispatch(showBookings());
     setShowBookingDetails(true);
 
     const wantedBookingDetails = bookingsDetails.find((booking) => {
-      return booking.username === username && booking.flightid == flightid;
+      return (
+        booking.username === username &&
+        booking.flightid == flightid &&
+        booking.id === id
+      );
     });
     console.log(wantedBookingDetails);
     setMyBookingDetails(wantedBookingDetails);
@@ -102,7 +106,8 @@ function Profile() {
                   onClick={() =>
                     handleCheckBookingDetails(
                       booking.username,
-                      booking.flightid
+                      booking.flightid,
+                      booking.id
                     )
                   } //seatNo in place of username
                   className="bookingCard"

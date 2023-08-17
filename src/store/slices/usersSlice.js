@@ -34,6 +34,7 @@ const usersSlice = createSlice({
     users: [],
     loggedIn: false,
     loggedUser: {},
+    loggedInMessege: false,
   },
   reducers: {
     logoutUser(state, action) {

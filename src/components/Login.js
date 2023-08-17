@@ -75,6 +75,7 @@ function Login({ stateToReRenderNavbarOnly, setStateToReRenderNavbarOnly }) {
       dispatch(makeUserLoggedIn());
       dispatch(addLoggedUserDetails(userFound));
       navigate("/flights");
+
       console.log(loggedIn);
       console.log(loggedUser);
     } else if (

@@ -651,7 +651,10 @@ button:hover {
 
 #WrongIDPass {
   background-color: red;
-  color: black;
+  color: white;
+  padding: 5px;
+  border: 2px solid transparent;
+  border-radius: 5px;
 }
 
 #CloseModalBtn {

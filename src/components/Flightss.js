@@ -21,6 +21,20 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
     seats: "",
   });
 
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  const validate = (values) => {
+    const errors = {};
+
+    if (!values.passengerName) {
+      errors.PassengerName = "Please enter passenger name";
+    } else if (!values.seats) {
+      errors.Seats = "Please enter no of seats";
+    }
+
+    return errors;
+  };
   // sorting logic
 
   const [currentSort, setCurrentSort] = useState("");
@@ -65,6 +79,13 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
     });
   }, []);
 
+  useEffect(() => {
+    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      // console.log(validUser);
+    }
+  }, [formErrors]);
+
   const handleBookFlight = (flightid) => {
     if (loggedIn === false) {
       navigate("/Login");
@@ -87,11 +108,17 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
       passengerName: passengerDetails.passengerName,
       seats: passengerDetails.seats,
     };
-    setBookThisFlight(finalFlightToBook);
-    dispatch(bookFlight(finalFlightToBook));
-    console.log(flights.bookedFlights);
-    alert("Flight Booked Succesfully");
-    navigate("/Profile");
+    setFormErrors(validate(passengerDetails));
+    if (
+      passengerDetails.passengerName !== "" &&
+      passengerDetails.seats !== ""
+    ) {
+      setBookThisFlight(finalFlightToBook);
+      dispatch(bookFlight(finalFlightToBook));
+      console.log(flights.bookedFlights);
+      alert("Flight Booked Succesfully");
+      navigate("/Profile");
+    }
   };
 
   let content = flights.flights.map((flight, index) => {
@@ -107,6 +134,9 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
         <div className="flight-destination">
           <div className="destination">{flight.destination}</div>
           <div className="arrival-time">{flight.arrivalTime}</div>
+        </div>
+        <div className="flight-date">
+          <div className="date">{flight.date}</div>
         </div>
         <div className="flight-fare">{flight.fare} $</div>
         <div className="flight-book-button">
@@ -131,7 +161,7 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
     },
   };
 
-  return (
+  return flights.flights.length !== 0 ? (
     <>
       <Modal
         isOpen={modalIsOpen}
@@ -151,6 +181,7 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
           type="text"
           placeholder="Enter Full Name"
         />
+        <p className="formErrors">{formErrors.PassengerName}</p>
         <input
           onChange={(e) =>
             setPassengerDetails({ ...passengerDetails, seats: e.target.value })
@@ -158,8 +189,10 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
           type="number"
           placeholder="Enter No of Seats"
         />
+        <p className="formErrors">{formErrors.Seats}</p>
         <button onClick={bookMyFlight}>Book</button>
       </Modal>
+
       <h2 className="Best-Flights">Best Flights</h2>
 
       {/* if flights are savailable then only it will show sort option */}
@@ -169,6 +202,8 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
 
       {content}
     </>
+  ) : (
+    <h2 style={{ textAlign: "center", color: "red" }}>No Flights Available</h2>
   );
 }
 

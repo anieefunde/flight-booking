@@ -15,12 +15,27 @@ export const viewSearchedFlight = createAsyncThunk(
     let flightsData = response.data;
     console.log(flightsData);
     let finaldata = flightsData.filter((flight) => {
-      return (
-        flight.origin.toLowerCase() === searchedFlight.from.toLowerCase() &&
-        flight.destination.toLowerCase() ===
-          searchedFlight.destination.toLowerCase() &&
-        flight.date === searchedFlight.date
-      );
+      if (
+        searchedFlight.from !== "" &&
+        searchedFlight.destination !== "" &&
+        searchedFlight.date !== ""
+      ) {
+        return (
+          flight.origin.toLowerCase() === searchedFlight.from.toLowerCase() &&
+          flight.destination.toLowerCase() ===
+            searchedFlight.destination.toLowerCase() &&
+          flight.date === searchedFlight.date
+        );
+      } else if (
+        searchedFlight.from !== "" &&
+        searchedFlight.destination !== ""
+      ) {
+        return (
+          flight.origin.toLowerCase() === searchedFlight.from.toLowerCase() &&
+          flight.destination.toLowerCase() ===
+            searchedFlight.destination.toLowerCase()
+        );
+      }
     });
     if (finaldata.length !== 0) {
       console.log("hey");
@@ -84,6 +99,20 @@ export const showSortedFlights = createAsyncThunk(
   }
 );
 
+export const getSelectedFlight = createAsyncThunk(
+  "selectedFlight/get",
+  async (flightId) => {
+    const response = await axios.get("http://localhost:3005/flights");
+    const data = response.data;
+
+    const finalFlight = data.filter((flight) => {
+      return flight.flightid === flightId;
+    });
+
+    return finalFlight;
+  }
+);
+
 const flightSlice = createSlice({
   name: "Flight",
   initialState: {
@@ -106,6 +135,9 @@ const flightSlice = createSlice({
       state.bookings = action.payload;
     });
     builder.addCase(showSortedFlights.fulfilled, (state, action) => {
+      state.flights = action.payload;
+    });
+    builder.addCase(getSelectedFlight.fulfilled, (state, action) => {
       state.flights = action.payload;
     });
   },

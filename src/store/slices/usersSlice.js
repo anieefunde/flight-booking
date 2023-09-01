@@ -28,6 +28,13 @@ export const addLoggedUserDetails = createAsyncThunk(
 
 // console.log(isObjectEmpty(myObj));
 
+export const registerNewUser = createAsyncThunk(
+  "newUser/register",
+  async (newUser) => {
+    const response = await axios.post("http://localhost:3005/users", newUser);
+    return response.data;
+  }
+);
 const usersSlice = createSlice({
   name: "users",
   initialState: {
@@ -53,6 +60,9 @@ const usersSlice = createSlice({
     });
     builder.addCase(addLoggedUserDetails.fulfilled, (state, action) => {
       state.loggedUser = action.payload;
+    });
+    builder.addCase(registerNewUser.fulfilled, (state, action) => {
+      state.users.push(action.payload);
     });
   },
 });

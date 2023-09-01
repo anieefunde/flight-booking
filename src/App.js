@@ -11,6 +11,7 @@ import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import { useSelector } from "react-redux";
 import Profile from "./components/Profile";
+import SignUp from "./components/SignUp";
 
 function App() {
   const [searchedFlight, setSearchedFlight] = useState({
@@ -61,6 +62,8 @@ function App() {
         />
 
         <Route path="/Profile" element={<Profile />} />
+
+        <Route path="/Signup" element={<SignUp />} />
       </Routes>
 
       <Footer />

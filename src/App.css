@@ -652,7 +652,7 @@ button:hover {
 #WrongIDPass {
   background-color: red;
   color: white;
-  padding: 5px;
+  padding: 7px;
   border: 2px solid transparent;
   border-radius: 5px;
 }
@@ -669,4 +669,26 @@ button:hover {
 .sortByHeading {
   display: inline;
   margin-right: 10px;
+}
+
+/* Sign up css */
+
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+.sign-up h3 {
+  color: green;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.signup-details {
+  margin-bottom: 20px;
+  display: block;
+}
+.sign-up p {
+  color: red;
 }

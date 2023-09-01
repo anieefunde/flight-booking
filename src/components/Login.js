@@ -126,7 +126,7 @@ function Login({ stateToReRenderNavbarOnly, setStateToReRenderNavbarOnly }) {
           )}
         </p>
         <button type="submit">Login</button>
-        <Link>New user?Signup</Link>
+        <Link to={"/Signup"}>New user?Signup</Link>
 
         <div className="google-login">
           <FcGoogle className="google-icon" />

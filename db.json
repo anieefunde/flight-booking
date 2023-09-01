@@ -68,45 +68,7 @@
       "mobile": "7776917610",
       "username": "aniee",
       "password": "asd",
-      "id": 1,
-      "Bookings": [
-        {
-          "passengerName": "Aniket Funde",
-          "seatNo": "2",
-          "origin": "Pune",
-          "destination": "Mumbai",
-          "departureTime": "12:00",
-          "arrivalTime": "04:00",
-          "date": "2023-01-01"
-        },
-        {
-          "passengerName": "Aniket Funde",
-          "seatNo": "3",
-          "origin": "Delhi",
-          "destination": "Goa",
-          "departureTime": "12:00",
-          "arrivalTime": "04:00",
-          "date": "2023-01-01"
-        },
-        {
-          "passengerName": "Aniket Funde",
-          "seatNo": "4",
-          "origin": "Jammu",
-          "destination": "Kerala",
-          "departureTime": "12:00",
-          "arrivalTime": "04:00",
-          "date": "2023-01-01"
-        },
-        {
-          "passengerName": "Aniket Funde",
-          "seatNo": "5",
-          "origin": "US",
-          "destination": "Norway",
-          "departureTime": "12:00",
-          "arrivalTime": "04:00",
-          "date": "2023-01-01"
-        }
-      ]
+      "id": 1
     },
     {
       "name": "Virat Kohli",
@@ -114,8 +76,23 @@
       "mobile": "123456",
       "username": "kingkohli",
       "password": "asd",
-      "id": 2,
-      "Bookings": []
+      "id": 2
+    },
+    {
+      "name": "Arpit",
+      "city": "Yavatmal",
+      "mobile": "1234567",
+      "username": "arpitm",
+      "password": "asd",
+      "id": 3
+    },
+    {
+      "name": "Gaurav",
+      "city": "ytl",
+      "mobile": "123",
+      "username": "as",
+      "password": "asd",
+      "id": 4
     }
   ],
   "bookings": [
@@ -212,10 +189,10 @@
       "fare": 3000,
       "date": "2023-01-01",
       "img": "../assets/flightImg1.png",
-      "username": "aniee",
-      "passengerName": "Gaurav",
+      "username": "arpitm",
+      "passengerName": "Arpit",
       "seats": "1",
-      "id": 10
+      "id": 11
     }
   ]
 }

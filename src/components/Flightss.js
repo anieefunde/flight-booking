@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   bookFlight,
   fetchFlights,
+  searchFlight,
   viewSearchedFlight,
 } from "../store/slices/flightSlice";
 import { useNavigate } from "react-router-dom";
@@ -121,17 +122,23 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
     }
   };
 
+  const handleChange = (e) => {
+    //logic
+    let flightToSearch = e.target.value;
+    dispatch(searchFlight(flightToSearch));
+  };
+
   let content = flights.flights.map((flight, index) => {
     return (
       <div className="flights-container">
         <div className="flights-Img">
           <img src={flight_logo} alt="" />
         </div>
-        <div className="flight-origin">
+        <div id="flightOriginId" className="flight-origin">
           <div className="origin">{flight.origin}</div>
           <div className="dept-time">{flight.departureTime}</div>
         </div>
-        <div className="flight-destination">
+        <div id="flightDestId" className="flight-destination">
           <div className="destination">{flight.destination}</div>
           <div className="arrival-time">{flight.arrivalTime}</div>
         </div>
@@ -164,6 +171,7 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
   return flights.flights.length !== 0 ? (
     <>
       <Modal
+        className={"modal"}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Example Modal"
@@ -205,6 +213,15 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
   ) : (
     <h2 style={{ textAlign: "center", color: "red" }}>No Flights Available</h2>
   );
+}
+
+{
+  /* <input
+  type="text"
+  placeholder="search flights"
+  onChange={(e) => handleChange(e)}
+  className="searchFlights"
+/>; */
 }
 
 export default Flightss;

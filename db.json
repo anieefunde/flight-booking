@@ -193,6 +193,20 @@
       "passengerName": "Arpit",
       "seats": "1",
       "id": 11
+    },
+    {
+      "flightid": "123",
+      "origin": "Pune",
+      "destination": "Mumbai",
+      "departureTime": "12:00",
+      "arrivalTime": "04:00",
+      "fare": 3000,
+      "date": "2023-07-07",
+      "img": "../assets/flightImg1.png",
+      "username": "aniee",
+      "passengerName": "ANiee",
+      "seats": "1",
+      "id": 12
     }
   ]
 }

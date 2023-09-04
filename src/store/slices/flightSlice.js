@@ -113,6 +113,26 @@ export const getSelectedFlight = createAsyncThunk(
   }
 );
 
+export const searchFlight = createAsyncThunk(
+  "flight/search",
+  async (flightToSearch) => {
+    const response = await axios.get("http://localhost:3005/flights");
+    const flights = response.data;
+
+    const result = flights.filter((flight) => {
+      if (
+        flight.origin.toLowerCase() === flightToSearch.toLowerCase() ||
+        flight.destination.toLowerCase() === flightToSearch.toLowerCase()
+      ) {
+        return flight;
+      } else if (flightToSearch === "") {
+        return flights;
+      }
+    });
+    return result;
+  }
+);
+
 const flightSlice = createSlice({
   name: "Flight",
   initialState: {
@@ -138,6 +158,9 @@ const flightSlice = createSlice({
       state.flights = action.payload;
     });
     builder.addCase(getSelectedFlight.fulfilled, (state, action) => {
+      state.flights = action.payload;
+    });
+    builder.addCase(searchFlight.fulfilled, (state, action) => {
       state.flights = action.payload;
     });
   },

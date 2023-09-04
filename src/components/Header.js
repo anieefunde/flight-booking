@@ -49,17 +49,17 @@ function Header() {
             {" "}
             <p className="nav-left-menu-item">Flights</p>
           </Link>
-          <p className="nav-left-menu-item">
+          <p className="nav-left-menu-item trainId">
             <BsTrainFreightFront />
           </p>
           <Link className="Trains-Link">
-            <p className="nav-left-menu-item">Trains</p>{" "}
+            <p className="nav-left-menu-item trainId">Trains</p>{" "}
           </Link>
-          <p className="nav-left-menu-item">
+          <p className="nav-left-menu-item hotelId">
             <LuHotel />
           </p>
           <Link className="Hotels-Link">
-            <p className="nav-left-menu-item">Hotels</p>{" "}
+            <p className="nav-left-menu-item hotelId">Hotels</p>{" "}
           </Link>
         </div>
       </div>
@@ -79,11 +79,7 @@ function Header() {
           {loggedIn ? (
             <li id="loggedInMenuIconAndName">
               {" "}
-              <Link id="logged-user-name" to={"/Login"}>
-                {" "}
-                {loggedUser.name}
-              </Link>{" "}
-              <MenuIcon />
+              <Link id="logged-user-name"> {loggedUser.name}</Link> <MenuIcon />
             </li>
           ) : (
             <li>

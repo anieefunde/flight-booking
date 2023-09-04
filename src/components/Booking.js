@@ -45,6 +45,7 @@ function Booking({ searchedFlight, setSearchedFlight }) {
         <img src={icici} id="icici-img" alt="" />
         <div className="search-box">
           <input
+            className="input"
             type="text"
             placeholder="From"
             onChange={(e) =>
@@ -52,6 +53,7 @@ function Booking({ searchedFlight, setSearchedFlight }) {
             }
           />
           <input
+            className="input"
             type="text"
             placeholder="Destination"
             onChange={(e) =>
@@ -62,6 +64,7 @@ function Booking({ searchedFlight, setSearchedFlight }) {
             }
           />
           <input
+            className="input"
             type="date"
             placeholder="Select Date"
             onChange={(e) =>

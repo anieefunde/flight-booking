@@ -692,3 +692,90 @@ button:hover {
 .sign-up p {
   color: red;
 }
+.searchFlights {
+}
+@media (max-width: 767px) {
+  .trainId {
+    display: none;
+  }
+  .hotelId {
+    display: none;
+  }
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    /* background-color: gainsboro; */
+    width: 100%;
+  }
+
+  .offers {
+    display: none;
+  }
+  .about-us {
+    font-size: smaller;
+  }
+  .footer {
+    width: 100%;
+  }
+  .quick-links {
+    display: none;
+  }
+  .services {
+    display: none;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+  }
+  .flights-container {
+    display: flex;
+    flex-direction: column;
+  }
+  #icici-img {
+    display: none;
+  }
+  .overlay-title {
+    display: none;
+  }
+  .search-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .search-box input {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  .login-container form {
+    /* background-color: gray; */
+    width: 100%;
+    height: 50%;
+  }
+  #pop_airlines {
+    display: none;
+  }
+
+  .ProfileCard {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width: 100%;
+    margin-left: 0;
+    margin: 0;
+  }
+  .Profile {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Card {
+    margin: 35px;
+  }
+  .container {
+    height: 500px;
+  }
+}

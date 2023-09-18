@@ -207,6 +207,20 @@
       "passengerName": "ANiee",
       "seats": "1",
       "id": 12
+    },
+    {
+      "flightid": "111",
+      "origin": "Pune",
+      "destination": "Mumbai",
+      "departureTime": "12:00",
+      "arrivalTime": "04:00",
+      "fare": 3000,
+      "date": "2023-01-01",
+      "img": "../assets/flightImg1.png",
+      "username": "aniee",
+      "passengerName": "sads",
+      "seats": "23",
+      "id": 13
     }
   ]
 }

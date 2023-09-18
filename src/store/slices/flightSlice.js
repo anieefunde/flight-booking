@@ -43,7 +43,7 @@ export const viewSearchedFlight = createAsyncThunk(
     }
     console.log(finaldata);
     console.log(flightsData);
-    return [];
+    // return [];
   }
 );
 
@@ -141,6 +141,11 @@ const flightSlice = createSlice({
     flightSearchedFlag: false,
     bookings: [],
   },
+  reducers: {
+    changleFlightSearchFlag(state, action) {
+      state.flightSearchedFlag = true;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(fetchFlights.fulfilled, (state, action) => {
       state.flights = action.payload;
@@ -167,3 +172,4 @@ const flightSlice = createSlice({
 });
 // export const { bookFlight } = flightSlice.actions
 export const flightReducer = flightSlice.reducer;
+export const { changleFlightSearchFlag } = flightSlice.actions;

@@ -20,6 +20,10 @@ function App() {
     date: "",
   });
 
+  const [selectedFlightFlag, setSelectedFlightFlag] = useState(false);
+  let flights = useSelector((state) => {
+    return state.flights;
+  });
   const [stateToReRenderNavbarOnly, setStateToReRenderNavbarOnly] =
     useState(false);
 
@@ -31,7 +35,15 @@ function App() {
       />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              selectedFlightFlag={selectedFlightFlag}
+              setSelectedFlightFlag={setSelectedFlightFlag}
+            />
+          }
+        />
         <Route
           path="/Booking"
           element={
@@ -47,6 +59,7 @@ function App() {
             <Flightss
               searchedFlight={searchedFlight}
               setSearchedFlight={setSearchedFlight}
+              selectedFlightFlag={selectedFlightFlag}
             />
           }
         />

@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import bg from "../assets/bg.jpg";
 import icici from "../assets/icici.png";
 import logo from "../assets/logo.png";
-import { viewSearchedFlight } from "../store/slices/flightSlice";
+import {
+  changleFlightSearchFlag,
+  viewSearchedFlight,
+} from "../store/slices/flightSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -22,16 +25,15 @@ function Booking({ searchedFlight, setSearchedFlight }) {
   const handleViewSearch = () => {
     if (searchedFlight.from !== "" && searchedFlight.destination !== "") {
       dispatch(viewSearchedFlight(searchedFlight));
+      dispatch(changleFlightSearchFlag());
       navigate("/flights");
-
-      console.log(flightSearchedFlag);
     } else {
       alert("Enter Source and destination");
     }
   };
   let content = (
     <div className="container">
-      <img src={bg} alt="Background Image" />
+      <img src={bg} id="bgImgBooking" alt="Background Image" />
 
       <div className="overlay">
         <div className="overlay-title">

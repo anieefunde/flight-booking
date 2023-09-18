@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   bookFlight,
   fetchFlights,
+  fetchUsers,
+  getSelectedFlight,
   searchFlight,
   viewSearchedFlight,
 } from "../store/slices/flightSlice";
@@ -11,8 +13,9 @@ import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { AiFillCloseCircle } from "react-icons/ai";
 import SortByPanel from "./SortByPanel";
+import Shimmer from "./Shimmer";
 
-function Flightss({ searchedFlight, setSearchedFlight }) {
+function Flightss({ searchedFlight, setSearchedFlight, selectedFlightFlag }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [bookThisFlight, setBookThisFlight] = useState({});
@@ -64,14 +67,17 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
   let flights = useSelector((state) => {
     return state.flights;
   });
-
+  console.log("FLIGHTSSS :", flights.flights);
   let flightSearchedFlag = useSelector((state) => {
     return state.flights.flightSearchedFlag;
   });
+  console.log(flightSearchedFlag);
 
   useEffect(() => {
     if (flightSearchedFlag) {
       dispatch(viewSearchedFlight(searchedFlight));
+    } else if (flightSearchedFlag === false && selectedFlightFlag === false) {
+      dispatch(fetchFlights());
     }
     setSearchedFlight({
       from: "",
@@ -211,8 +217,11 @@ function Flightss({ searchedFlight, setSearchedFlight }) {
       {content}
     </>
   ) : (
-    <h2 style={{ textAlign: "center", color: "red" }}>No Flights Available</h2>
+    Array(6)
+      .fill("")
+      .map(() => <Shimmer key={Math.random()} />)
   );
+  // <h2 style={{ textAlign: "center", color: "red" }}>No Flights Available</h2>
 }
 
 {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchFlights,
@@ -10,11 +10,13 @@ import FlightImg1 from "../assets/FlightImg2.png";
 import FlightImg2 from "../assets/FlightImg3.png";
 import FlightImg3 from "../assets/FlightImg4.png";
 import { useNavigate } from "react-router-dom";
+import Shimmer from "./Shimmer";
+import ShimmerCard from "./ShimmerCard";
 
 const title = "Pune";
 const description = "Mumbai";
 
-function Card() {
+function Card({ setSelectedFlightFlag }) {
   const FlightImg = [
     FlightImg0,
     FlightImg1,
@@ -23,6 +25,7 @@ function Card() {
     FlightImg0,
     FlightImg1,
   ];
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -37,6 +40,7 @@ function Card() {
 
   const openSelectedFlight = (flightId) => {
     dispatch(getSelectedFlight(flightId));
+    setSelectedFlightFlag(true);
     navigate("/flights");
   };
 
@@ -65,7 +69,11 @@ function Card() {
   return (
     <>
       <h2 id="top-flights-title">Top Flights</h2>
-      {content}
+      {flights.flights.length !== 0
+        ? content
+        : Array(6)
+            .fill("")
+            .map(() => <ShimmerCard />)}
     </>
   );
 }

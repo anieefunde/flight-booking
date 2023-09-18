@@ -694,6 +694,36 @@ button:hover {
 }
 .searchFlights {
 }
+
+/* SHimmer */
+#shimmer-div-main {
+}
+#shimmer-div-1 {
+  width: 1200px;
+  height: 50px;
+  background-color: gainsboro;
+  padding: 5px;
+  margin: 20px 70px;
+}
+#shimmerCard-div-main {
+  padding: 5px;
+  margin: 20px 90px;
+  display: inline-block;
+}
+#shimmerCard-div-1 {
+  width: 300px;
+  height: 200px;
+  background-color: gainsboro;
+  padding: 5px;
+  margin: 20px 70px;
+}
+#shimmerCard-div-2 {
+  width: 300px;
+  height: 50px;
+  background-color: gainsboro;
+  padding: 5px;
+  margin: 20px 70px;
+}
 @media (max-width: 767px) {
   .trainId {
     display: none;
@@ -733,6 +763,15 @@ button:hover {
     display: flex;
     flex-direction: column;
   }
+  .flight-origin {
+    margin-bottom: 15px;
+  }
+  .flight-destination {
+    margin-bottom: 15px;
+  }
+  .flight-date {
+    margin-bottom: 15px;
+  }
   #icici-img {
     display: none;
   }
@@ -761,8 +800,8 @@ button:hover {
     display: flex;
     flex-direction: column;
     height: 200px;
-    width: 100%;
-    margin-left: 0;
+    width: 110%;
+
     margin: 0;
   }
   .Profile {
@@ -777,5 +816,41 @@ button:hover {
   }
   .container {
     height: 500px;
+  }
+  #bgImgBooking {
+    /* width: fit-content; */
+    width: 430px;
+  }
+  .container {
+    width: 100%;
+  }
+  /* SHimmer */
+  #shimmer-div-main {
+  }
+  #shimmer-div-1 {
+    width: 300px;
+    height: 30px;
+    background-color: gainsboro;
+    padding: 5px;
+    margin: 20px 40px;
+  }
+  #shimmerCard-div-main {
+    padding: 5px;
+    margin: 20px 0px;
+    display: inline-block;
+  }
+  #shimmerCard-div-1 {
+    width: 300px;
+    height: 200px;
+    background-color: gainsboro;
+    padding: 5px;
+    margin: 20px 30px;
+  }
+  #shimmerCard-div-2 {
+    width: 300px;
+    height: 50px;
+    background-color: gainsboro;
+    padding: 5px;
+    margin: 20px 30px;
   }
 }

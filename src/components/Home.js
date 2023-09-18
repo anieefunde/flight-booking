@@ -1,20 +1,21 @@
-import React from 'react'
+import React, { useState } from "react";
 
-import Body from './Body'
-import About from './About'
+import Body from "./Body";
+import About from "./About";
 
-import Card from './Card'
+import Card from "./Card";
 
-
-function Home() {
-    return (
-        <div>
-            <Body />
-            <Card />
-            <About />
-
-        </div>
-    )
+function Home({ selectedFlightFlag, setSelectedFlightFlag }) {
+  return (
+    <div>
+      <Body />
+      <Card
+        selectedFlightFlag={selectedFlightFlag}
+        setSelectedFlightFlag={setSelectedFlightFlag}
+      />
+      <About />
+    </div>
+  );
 }
 
-export default Home
+export default Home;
